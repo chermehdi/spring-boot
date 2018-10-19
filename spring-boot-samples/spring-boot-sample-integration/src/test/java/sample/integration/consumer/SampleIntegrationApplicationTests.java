@@ -1,5 +1,5 @@
 /*
- * Copyright 2012-2017 the original author or authors.
+ * Copyright 2012-2018 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,12 +51,12 @@ public class SampleIntegrationApplicationTests {
 	private ConfigurableApplicationContext context;
 
 	@Before
-	public void deleteInputAndOutput() throws InterruptedException {
+	public void deleteInputAndOutput() {
 		deleteIfExists(new File("target/input"));
 		deleteIfExists(new File("target/output"));
 	}
 
-	private void deleteIfExists(File directory) throws InterruptedException {
+	private void deleteIfExists(File directory) {
 		if (directory.exists()) {
 			assertThat(FileSystemUtils.deleteRecursively(directory)).isTrue();
 		}
@@ -119,4 +119,5 @@ public class SampleIntegrationApplicationTests {
 		}
 		return candidates;
 	}
+
 }
